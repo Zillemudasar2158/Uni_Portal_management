@@ -1,7 +1,7 @@
 <style type="text/css">
 	.footer {
   float: left;
-  width:99%;
+  width:100%;
      background-color: #777;
   padding: 5px;
   text-align: center;
@@ -59,7 +59,7 @@
 }
 </style>
 <div class="right">
-  <h2 style="background-color:green; text-align: center; padding: 5px; color: white">All posted jobs</h2>
+  <h2 style="text-align: center; padding: 5px;">All posted jobs</h2>
                      <!-- database lagani ha messages ki -->
       @foreach($userjob as $user )
 

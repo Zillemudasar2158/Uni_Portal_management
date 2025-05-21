@@ -16,7 +16,7 @@
 }
 input[type=submit] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color:#f0fae6;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -95,13 +95,11 @@ input[type=submit]:hover {
     <label for="fname"><b>Subject: </b></label>
     <input type="text" class="input" name="subject" placeholder="Your job subject.." required>
 
-   <!-- <label for="pic"><b> Job banner </b></label>
-    <input type="file" class="input" name="banner" required>
--->
     <label for="fname"><b>Description</b> </label> <br><br>
     <input type="text" height="100px;" class="input1" name="description" placeholder="Type text here........" required>
 
-    <input type="submit" value="Add job">
+       <button style="margin-top: 6px"  id="payment-button" type="submit" class="btn btn-lg btn-info btn-block ">Post job</button>
+
   </form>
 </div>
 <br>

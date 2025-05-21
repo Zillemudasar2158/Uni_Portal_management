@@ -20,7 +20,7 @@ class usercontroller extends Controller
             return redirect('/');
         }
         else{
-    	   return view('simple_nav').view('log').view('footer').view('chatmessage_popup');
+    	   return view('simple_nav').view('log').view('footer');
         }
     }
     public function contact(Request $r)
@@ -61,7 +61,7 @@ class usercontroller extends Controller
         else
         { 
         $data=department::all();
-        return view('simple_nav').view('form',['members'=>$data]).view('footer').view('chatmessage_popup');
+        return view('simple_nav').view('form',['members'=>$data]).view('footer');
     }
     }
 }

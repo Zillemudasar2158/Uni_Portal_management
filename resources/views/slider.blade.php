@@ -3,7 +3,7 @@
   #blink {
             font-size: 40px;
             font-weight: bold;
-            color:red;
+            color:#219c9c;
             transition: 0.2s;
             text-align: center;
         }

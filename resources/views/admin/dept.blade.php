@@ -32,8 +32,8 @@
               <div id="dept_row_box">
                 <div id="dept1">
                   <input type="text" class="input" name="dept[]" placeholder="Enter department name.." required><button type="button" style="margin-left: 5px" class="btn btn-success btn-lg" onclick="add_more()">
-              <span aria-hidden="true">+</span>
-              </button>
+                      <span aria-hidden="true">+</span>
+                  </button>
                 </div>
               </div>
               <!--    <div class="alert alert-danger">

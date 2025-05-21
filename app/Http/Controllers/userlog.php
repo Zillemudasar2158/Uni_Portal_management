@@ -11,7 +11,7 @@ class userlog extends Controller
 {
     public function userlog1(Request $r)
     {
-
+ 
         $email=$r->input('email');
         $pass=$r->input('password');
         

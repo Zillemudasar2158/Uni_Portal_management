@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -9,10 +8,6 @@ use App\Models\department;
 use App\Models\msg_user;
 use App\Models\job;
 use Illuminate\Support\Facades\DB;
-
-//use Excel;
-//use Maatwebsite\Excel\Concerns\Formcollection;
-
 
 class form extends Controller
 {
@@ -58,8 +53,8 @@ class form extends Controller
        
     public function show()
     {
-    	//$data=user::paginate(5);           .view('usersdata',['members'=>$data])
-    	return view('admin/admin_nav');
+    	$data=user::paginate(5);           
+    	return view('admin/admin_nav').view('usersdata',['members'=>$data]);
     }
     public function destroy(user $user,$id)
     {
@@ -166,12 +161,3 @@ class form extends Controller
         return Excel::download(new userexport,'alluserdata.xlsx');
     }
 }
-/*
-class userexport implements Formcollection
-{
-    public function collection()
-    {
-        return user::all();
-    }
-}
-*/

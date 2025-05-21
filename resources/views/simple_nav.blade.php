@@ -30,12 +30,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="about">About</a></li>
         <li><a href="contact">Contact us</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="jobshow">Jobs</a></li>
+            <li><a href="jobshow">Careers</a></li>
            
           </ul>
         </li> 
