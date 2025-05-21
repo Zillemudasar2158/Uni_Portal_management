@@ -54,7 +54,7 @@ input[type=submit]:hover {
 </style>
 <body>
 
-<h2 style="text-align: center;">Send Message</h2>
+<h2 style="text-align: center;">Review</h2>
 <h3 style="text-align: center;color:red">
         {{session('msg')}}
 </h3><br />
@@ -73,6 +73,6 @@ input[type=submit]:hover {
     <label for="msg">Message</label><br><br><br>
     <input type="text" height="100px;" class="input1" name="msg" placeholder="Type text here........" required>
  
-    <input type="submit" value="Send Message">
+    <input type="submit" value="Send Review">
   </form>
 </div>

@@ -50,7 +50,6 @@
             <td><b>Email</b></td>
             <td><b>Password</b></td>
             <td><b>Department</b></td>
-            <td><b>Pic</b></td>
             <td><b>Active</b></td>
             <td><b>Edit</b></td>
             <td><b>Delete</b></td>
@@ -61,9 +60,7 @@
             <td>{{$user['email']}}</td>
             <td>{{$user['password']}}</td>
             <td>{{$user['dept']}}</td>    
-            <td>
-               <img src="{{ asset('storage/'.$user['file_path']) }}" width="80px" height="60px">
-            </td> 
+            
              @if($user['status']==1) 
              <td>
                 <a href="deactiveuser/{{$user->id}}"><button class="btn btn-success">
