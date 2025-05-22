@@ -10,8 +10,7 @@
 }
 input[type=submit] {
   width: 100%;
-  background-color: #66d9ff
-;
+  background-color: #219c9c;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -20,45 +19,40 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #4dd2ff;
-}
-
-.form {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  height: auto;
-}
 #valid{
   color: red;
 }
 </style>
 <body>
 
-<h2 style="text-align: center;">Add slider Pics</h2>
+<h2 style="text-align: center;color: #219c9c">Add slider Pics</h2><hr>
 <h3 style="text-align: center;color:red">
         {{session('msg')}}
    </h3><br />
-<div class="form">
-  <form action="sliderpic" method="post" enctype="multipart/form-data">
-    @csrf
-    <label for="fname">Description</label>
-    <input type="text" class="input" name="description" placeholder="Your name.." required>
-    <label id="valid">
-      @error('description')
-       {{$message}} 
-      @enderror
-    </label><br/>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form action="sliderpic" method="post" enctype="multipart/form-data">
+        @csrf
+        <label for="fname">Description</label>
+        <input type="text" class="input" name="description" placeholder="Your name.." required>
+        <label id="valid">
+          @error('description')
+           {{$message}} 
+          @enderror
+        </label><br/>
 
-    <label for="pic">Slider pic</label>
-    <input type="file" class="input" name="Slider_pic" required >
-    <label id="valid">
-      @error('slider_pic')
-       {{$message}} 
-      @enderror
-    </label><br/>
-      
-    <input type="submit" name="submit" value="Add Pic">
-  </form>
+        <label for="pic">Slider pic</label>
+        <input type="file" class="input" name="Slider_pic" required >
+        <label id="valid">
+          @error('slider_pic')
+           {{$message}} 
+          @enderror
+        </label><br/>
+      <input type="submit" name="submit" value="Add Pictures">
+      </form>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
 </div>

@@ -12,10 +12,8 @@
         border: 1px solid white;
     }
 </style>
-<h3 align='center'>
-    All Slider images
-</h3>
-
+<hr>
+<h3 style="text-align: center;color: #219c9c;">All Slider images</h3><hr>
 <table align='center' border="2" >
     <tr class="truser">
         <td><b>Name</b></td>

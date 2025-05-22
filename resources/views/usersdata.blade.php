@@ -18,6 +18,7 @@
     }
     td{
         text-align: center;
+        padding: 2px
     }
     @media screen and (max-width: 600px) {
   .usertbl{
@@ -37,9 +38,7 @@
 
 }
 </style>
-<h2 align='center'>
-    <u>Manage Users data</u>
-</h2>
+<h2 style="text-align: center;color:#219c9c">Manage Users data</h2><hr>
 <h3 style="text-align: center;color:red">
         {{session('msg')}}
    </h3><br />

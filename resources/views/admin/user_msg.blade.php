@@ -1,7 +1,4 @@
 <style type="text/css">
-  
-
-
 .topnav1 {
   overflow: hidden;
   
@@ -87,7 +84,7 @@
 </style>
 
 <div class="right">
-  <h2 style="background-color:green; text-align: center; padding: 5px; color: white">Reviews</h2>
+  <h2 style="text-align: center; padding: 5px;color: #219c9c">Reviews</h2><hr>
                      <!-- database lagani ha messages ki -->
       @foreach($usermem as $user )
           <button class="accordion">

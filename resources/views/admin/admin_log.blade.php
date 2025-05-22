@@ -10,7 +10,7 @@
 }
 input[type=submit] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #219c9c;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -19,17 +19,6 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-.form {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  margin-left: 25%;
-  padding: 20px;
-  width: 50%;
-  height: 295px;
-}
 @media only screen and (max-width:750px) {
   /* For mobile phones: */
   .form {
@@ -41,17 +30,24 @@ input[type=submit]:hover {
 </style>
 <body>
 
-<h2 style="text-align: center;">Admin Log In</h2>
+<h2 style="text-align: center;color:#219c9c">Admin Log In</h2><hr>
 <h3 style="color: red;text-align: center; ">{{session('msg')}}</h3>
-<div class="form">
-  <form action="admin/adminlog" method="post">
-    @csrf
-    <label for="fname">Email</label>
-    <input type="email" class="input" name="email" placeholder="Your email.." required>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form action="admin/adminlog" method="post">
+      @csrf
+      <label for="fname">Email</label>
+      <input type="email" class="input" name="email" placeholder="Your email.." required>
 
-    <label for="fname">Password</label>
-    <input type="password" class="input" name="password" placeholder="Your password.." required>
+      <label for="fname">Password</label>
+      <input type="password" class="input" name="password" placeholder="Your password.." required>
 
-    <input type="submit" value="Log In">
-  </form>
+      <input type="submit" value="Log In">
+    </form>
+    <div class="col-sm-3"></div>
+    </div>
+  </div>
+    
 </div>

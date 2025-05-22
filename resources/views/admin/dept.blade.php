@@ -8,49 +8,50 @@
    border-radius: 4px;
    box-sizing: border-box;
    }
-   .form {
-   border-radius: 5px;
-   background-color: #f2f2f2;
-   padding: 20px;
-   height: auto;
-   }
    #valid{
    color: red;
    }
 </style>
 <body>
-   <h2 style="text-align: center;">Add Department</h2>
+   <h2 style="text-align: center;color: #219c9c">Add Department</h2><hr>
    <h3 style="text-align: center;color:red">
       {{session('msg')}}
    </h3>
    <br />
-
-        <div class="form" id="dept_data">
-           <form action="adddept" method="post">
-              @csrf
-              <label for="fname">Department Name</label>
-              <div id="dept_row_box">
-                <div id="dept1">
-                  <input type="text" class="input" name="dept[]" placeholder="Enter department name.." required><button type="button" style="margin-left: 5px" class="btn btn-success btn-lg" onclick="add_more()">
-                      <span aria-hidden="true">+</span>
-                  </button>
-                </div>
-              </div>
-              <!--    <div class="alert alert-danger">
-                 @error('dept')
-                 {{$message}} 
-                 @enderror
-                 </div>
-                 -->      
-              
-              <div>
-            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-              Submit
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form action="adddept" method="post">
+        @csrf
+        <label for="fname">Department Name</label>
+        <div id="dept_row_box">
+          <div id="dept1">
+            <input type="text" class="input" name="dept[]" placeholder="Enter department name.." required><button type="button" style="margin-left: 5px;" class="btn btn-success btn-lg" onclick="add_more()">
+                <span aria-hidden="true">+</span>
             </button>
-         </div>
-           </form>
+          </div>
         </div>
-   <script>
+        <!--    <div class="alert alert-danger">
+           @error('dept')
+           {{$message}} 
+           @enderror
+           </div>
+           -->      
+        
+        <div>
+        <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+          Submit
+        </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+
+
+<script>
       var loop_count=1; 
       function add_more(){
           loop_count++;

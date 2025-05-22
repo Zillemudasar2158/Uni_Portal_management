@@ -143,7 +143,7 @@ class admin_auth extends Controller
     {
 
         $data=slider::all();
-        return view('admin/admin_nav').view('admin/slider').view('admin/sliderpics',['members'=>$data]).view('footer');
+        return view('admin/admin_nav').view('admin/slider').view('admin/sliderpics',['members'=>$data]);
     } 
     public function addsliderpic(Request $r)
     {  

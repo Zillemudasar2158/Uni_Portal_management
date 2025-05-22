@@ -16,7 +16,7 @@
 }
 input[type=submit] {
   width: 100%;
-  background-color:#f0fae6;
+  background-color:color: #219c9c;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -25,22 +25,7 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-.form {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  height: 280px;
-}
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  .form {
-    width:100%;
-    height: 230px;
-  }
-}
+
 
 .topnav1 {
   overflow: hidden;
@@ -87,19 +72,24 @@ input[type=submit]:hover {
 </style>
 <body>
 
-<h2 style="text-align: center;">Add Jobs</h2>
+<h2 style="text-align: center;color: #219c9c">Add Jobs</h2><hr>
 <h3 style="color: red;text-align: center; ">{{session('msg')}}</h3>
-<div class="form">
-  <form action="jobpost" method="post">
-    @csrf
-    <label for="fname"><b>Subject: </b></label>
-    <input type="text" class="input" name="subject" placeholder="Your job subject.." required>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form action="jobpost" method="post">
+        @csrf
+        <label for="fname"><b>Subject: </b></label>
+        <input type="text" class="input" name="subject" placeholder="Your job subject.." required>
 
-    <label for="fname"><b>Description</b> </label> <br><br>
-    <input type="text" height="100px;" class="input1" name="description" placeholder="Type text here........" required>
+        <label for="fname"><b>Description</b> </label> <br><br>
+        <input type="text" height="100px;" class="input1" name="description" placeholder="Type text here........" required>
 
-       <button style="margin-top: 6px"  id="payment-button" type="submit" class="btn btn-lg btn-info btn-block ">Post job</button>
-
-  </form>
+        <button style="margin-top: 6px"  id="payment-button" type="submit" class="btn btn-lg btn-info btn-block ">Post job</button>
+      </form>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>  
 </div>
-<br>
+<hr>

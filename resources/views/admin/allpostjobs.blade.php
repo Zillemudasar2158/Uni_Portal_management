@@ -1,22 +1,4 @@
 <style type="text/css">
-	.footer {
-  float: left;
-  width:100%;
-     background-color: #777;
-  padding: 5px;
-  text-align: center;
-  color: white;
-}
-@media screen and (max-width: 600px) {
-  .footer {
-  float: left;
-  width:100%;
-     background-color: #777;
-  padding: 5px;
-  text-align: center;
-  color: white;
-    
-}}
 .right {
   width:100%;
   height: auto;
@@ -59,7 +41,7 @@
 }
 </style>
 <div class="right">
-  <h2 style="text-align: center; padding: 5px;">All posted jobs</h2>
+  <h2 style="text-align: center; padding: 5px;color: #219c9c">All posted jobs</h2><hr>
                      <!-- database lagani ha messages ki -->
       @foreach($userjob as $user )
 
@@ -101,13 +83,6 @@
       @endforeach
           
 </div>
-<br>
-<div class="footer">
-  <footer>
-  <i>
-    <p>@This design is created by officials Z'Star.</p>
-  </i>
-</footer>
 </div>
 <script>
 var acc = document.getElementsByClassName("accordion");

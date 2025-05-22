@@ -10,7 +10,7 @@
 }
 input[type=submit] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color:  #219c9c;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -19,9 +19,6 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
 .form {
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -41,7 +38,7 @@ input[type=submit]:hover {
 </style>
 <body>
 
-<h2 style="text-align: center;">User Log In</h2>
+<h2 style="text-align: center;text-align: center;color: #219c9c">User Log In</h2><hr>
 
 @error('form')
 <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
