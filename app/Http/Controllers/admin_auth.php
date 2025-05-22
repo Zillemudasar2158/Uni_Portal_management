@@ -106,7 +106,6 @@ class admin_auth extends Controller
             $deptarr['status']=1;
             DB::table('departments')->insert($deptarr);
         }
-
         $r->session()->flash('msg','Department Added Successfully');
         
         return redirect('dept'); 

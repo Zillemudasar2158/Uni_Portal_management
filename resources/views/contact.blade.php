@@ -42,7 +42,6 @@ input[type=submit] {
   }
 }
 </style>
-<body>
 
 <h2 style="text-align: center;color: #219c9c">Contact us</h2><hr>
 <h3 style="text-align: center;color:red">
@@ -52,10 +51,10 @@ input[type=submit] {
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <form action="usermsg" method="post">
+      <form action="usermsg" method="post" enctype="multipart/form-data">
           @csrf
           <label for="email">Email</label>
-          <input type="email" class="input" name="email" placeholder="{{Session::get('email')}}" readonly>
+          <input type="email" class="input" name="email" placeholder="Enter email here.." required>
 
           <label for="num">Mobile number</label>
           <input type="text" class="input" name="num" placeholder="Your mobile number.." required>
@@ -69,7 +68,6 @@ input[type=submit] {
           <input type="submit" value="Contact">
         </form>
     </div>
-    <div class="col-sm-3"></div>
-    
+    <div class="col-sm-3"></div>    
   </div>
 </div>

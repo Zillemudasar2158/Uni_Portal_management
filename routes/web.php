@@ -90,7 +90,7 @@ use App\Http\Controllers\admin_auth;
 });
 
 		Route::get('career',[usercontroller::class,'regd1']);
-		Route::get('contact',[usercontroller::class,'contact']);
+		Route::get('contact',[usercontroller::class,'contact']);		
 			
 			/*           user login 
 is middleware me issue a ra ha isko check krna ha */
