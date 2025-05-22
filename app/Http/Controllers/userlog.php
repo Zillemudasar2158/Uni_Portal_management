@@ -35,7 +35,7 @@ class userlog extends Controller
                     $r->session()->put('name',$namedata);
                     $r->session()->put('email',$emaildata);
                     $r->session()->flash('msg','Welcome to GCUF portal');
-                    return redirect('/'); 
+                    return redirect('/contact'); 
                 }
             }
         }

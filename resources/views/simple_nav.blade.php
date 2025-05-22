@@ -30,6 +30,8 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+        <li><a href="faculty">Faculty</a></li>
+        <li><a href="program">Programmes</a></li>
         <li><a href="contact">Contact us</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <span class="caret"></span></a>
@@ -40,16 +42,10 @@
         </li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-@if(Session::has('email'))
+      @if(Session::has('email'))
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome, 
             {{Session::get('name')}}
-          
-          @foreach($members as $user )
-            @if($user->email==Session::get('email'))
-             <img src="{{ asset('storage/'.$user['file_path']) }}" width="30" height="30">
-            @endif
-          @endforeach
            <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="userlogout">Log out</a></li>

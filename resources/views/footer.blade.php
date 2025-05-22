@@ -23,7 +23,7 @@
 <div class="footer">
 	<footer>
 	<i>
-		<p>@This design is created by officials Z'Star.</p>
+		<p>@This site is created by officials GCUF.</p>
 	</i>
 </footer>
 </div>

@@ -42,7 +42,7 @@
 }
 </style>
 <div class="right">
-  <h2 style="background-color:green; text-align: center; padding: 5px; color: white">All New jobs</h2>
+  <h2 style="color: #219c9c; text-align: center; padding: 5px;">All Available jobs</h2><hr>
                      <!-- database lagani ha messages ki -->
       @foreach($userjob as $user )
 @if($user['status']==1)

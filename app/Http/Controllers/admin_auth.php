@@ -101,6 +101,8 @@ class admin_auth extends Controller
         $dept=$r->post('dept');
         foreach ($dept as $key => $value) {
             $deptarr['dept']=$dept[$key];
+            $deptarr['head_dept']='Anonymus';
+            $deptarr['pic_path_dept']='wait';   //working required
             $deptarr['status']=1;
             DB::table('departments')->insert($deptarr);
         }

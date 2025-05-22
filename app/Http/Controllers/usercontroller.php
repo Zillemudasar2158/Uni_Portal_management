@@ -45,7 +45,7 @@ class usercontroller extends Controller
             }
             else{
                 $data1=department::all();
-                return view('simple_nav',['members'=>$data1]).view('contact').view('footer');
+                return view('simple_nav',['members'=>$data1]).view('contact',['members'=>$data1]);
             } 
         }
     }

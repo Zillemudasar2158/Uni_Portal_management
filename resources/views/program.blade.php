@@ -1,0 +1,22 @@
+<style type="text/css">
+	.col-sm-4{
+		margin-bottom: 5px;
+	}
+	.img_faculty{
+		width: 350px;
+		height: 200px;
+		margin-top: 5px;
+	}
+</style>
+<div class="container-fluid text-center"> 
+	<h1 style="color: #219c9c">Undergraduate pragrams</h1>   
+	<hr>
+  <div class="row content">
+	@foreach($members as $user)
+    <div class="col-sm-4"> 
+    	<a href="https://affiliation.gcuf.edu.pk/programs.php" target="_blank"><img src="{{$user->pic_path_dept}}" class="img_faculty">
+      	<h4>{{$user->dept}}</a></h4>
+    </div> 
+  @endforeach
+   </div>
+</div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usercontroller;
+use App\Http\Controllers\faculty;
 use App\Http\Controllers\form;
 use App\Http\Controllers\userlog;
 use App\Http\Controllers\admin_auth;
@@ -39,6 +40,12 @@ use App\Http\Controllers\admin_auth;
 		Route::get('db',[form::class,'db']);
 		Route::get('delete/{id}',[admin_auth::class,'destroydept']);
 		Route::get('deletejob/{id}',[admin_auth::class,'destroyjob']);
+
+				//faulty controller
+		Route::get('faculty',[faculty::class,'faculty']);
+
+				//Program route
+		Route::get('program',[faculty::class,'program']);
 
 				//admin_auth controller
 
@@ -82,8 +89,9 @@ use App\Http\Controllers\admin_auth;
 		Route::get('/download',[form::class,'download']);
 });
 
-Route::get('career',[usercontroller::class,'regd1']);
+		Route::get('career',[usercontroller::class,'regd1']);
 		Route::get('contact',[usercontroller::class,'contact']);
+			
 			/*           user login 
 is middleware me issue a ra ha isko check krna ha */
 		//Route::group(['middleware'=>['userlog']],function(){

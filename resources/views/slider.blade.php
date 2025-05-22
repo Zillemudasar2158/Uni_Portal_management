@@ -27,11 +27,11 @@
     <div class="carousel-inner">
                                   <!-- databse ssy fetch ky lia  <div class="item $item['id']==1?'active':''  "> -->
       <div class="item active">
-        <img src="image/gcuf.png" alt="Los Angeles" style="width:100%; height: 450px;">
+        <img src="image/campus2.jpg" alt="Los Angeles" style="width:100%; height: 450px;">
         <div class="carousel-caption">
-          <h2 style="color: black">
+          <h2 style="color: white">
             <i>
-              GCUF Official Icon
+              Beautiful View of sahiwal Campus
             </i>
           </h2>
           <p></p>
@@ -39,7 +39,7 @@
       </div>
 
       <div class="item">
-        <img src="image/campus2.jpg" alt="Chicago" style="width:100%;height: 450px;">
+        <img src="image/sahiwalcampus.jpg" alt="Chicago" style="width:100%;height: 450px;">
         <div class="carousel-caption">
           <h2 style="color: white">
             <i>
@@ -51,11 +51,11 @@
       </div>
     
       <div class="item">
-        <img src="image/sahiwalcampus.jpg" alt="New York" style="width:100%;height: 450px;">
+        <img src="image/lab.png" alt="New York" style="width:100%;height: 450px;">
         <div class="carousel-caption">
           <h2 style="color: black">
             <i>
-              Beautiful View of sahiwal Campus
+              GCUF Lab
             </i>
           </h2>
           <p></p>

@@ -16,6 +16,7 @@
 }
 textarea {
   width: 100%;
+  height: 200px;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -38,12 +39,6 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-.form {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  height: 460px;
-}
 @media only screen and (max-width:620px) {
   /* For mobile phones: */
   .form {
@@ -54,25 +49,32 @@ input[type=submit]:hover {
 </style>
 <body>
 
-<h2 style="text-align: center;">Review</h2>
+<h2 style="text-align: center;color: #219c9c">Contact us</h2><hr>
 <h3 style="text-align: center;color:red">
         {{session('msg')}}
 </h3><br />
-<div class="form">
-  <form action="usermsg" method="post">
-    @csrf
-    <label for="email">Email</label>
-    <input type="email" class="input" name="email" placeholder="Your email address.." required>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form action="usermsg" method="post">
+          @csrf
+          <label for="email">Email</label>
+          <input type="email" class="input" name="email" placeholder="{{Session::get('email')}}" readonly>
 
-    <label for="num">Mobile number</label>
-    <input type="text" class="input" name="num" placeholder="Your mobile number.." required>
+          <label for="num">Mobile number</label>
+          <input type="text" class="input" name="num" placeholder="Your mobile number.." required>
 
-    <label for="email">Subject</label>
-    <input type="text" class="input" name="subject" placeholder="Enter subject here....." required>
+          <label for="email">Subject</label>
+          <input type="text" class="input" name="subject" placeholder="Enter subject here....." required>
 
-    <label for="msg">Message</label><br><br><br>
-    <input type="text" height="100px;" class="input1" name="msg" placeholder="Type text here........" required>
- 
-    <input type="submit" value="Send Review">
-  </form>
+          <label for="msg">Message</label><br>
+          <input type="textarea" class="input1" name="msg" placeholder="Type text here........" required>
+       
+          <input type="submit" value="Contact">
+        </form>
+    </div>
+    <div class="col-sm-3"></div>
+    
+  </div>
 </div>
