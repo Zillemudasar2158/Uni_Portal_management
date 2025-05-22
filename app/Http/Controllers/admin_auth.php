@@ -120,7 +120,7 @@ class admin_auth extends Controller
         $email=$request->input('email');
         $password=$request->input('password');
         if ($email=='zillemudasar60@gmail.com' && $password=='12345') {
-            $request->session()->put('name','zillemudasar');
+            $request->session()->put('name','zille mudasar');
             return redirect('usersdata');
         }
         else{

@@ -44,7 +44,7 @@ input[type=submit]:hover {
 <h2 style="text-align: center;">Admin Log In</h2>
 <h3 style="color: red;text-align: center; ">{{session('msg')}}</h3>
 <div class="form">
-  <form action="adminlog" method="post">
+  <form action="admin/adminlog" method="post">
     @csrf
     <label for="fname">Email</label>
     <input type="email" class="input" name="email" placeholder="Your email.." required>
