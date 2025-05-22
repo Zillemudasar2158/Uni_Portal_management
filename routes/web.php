@@ -106,8 +106,5 @@ is middleware me issue a ra ha isko check krna ha */
 		    return redirect('login');
 		});
 				// message user 
-
-
-		Route::post('usermsg',[form::class,'msguser']);
-		
-		Route::get('deletemsg/{id}',[admin_auth::class,'deletemsg']);
+		Route::post('usermsg',[form::class,'msguser']);		
+		Route::get('deletemsg/{id}',[form::class,'deletemsg']);

@@ -92,7 +92,13 @@ class form extends Controller
         $r->session()->flash('msg','Your message sent by admin. our team will response very soon');
         
         return redirect('contact'); 
-    }  
+    } 
+    public function deletemsg(user $user,$id)
+    {
+       msg_user::destroy(array('id',$id));
+
+        return redirect('msg');
+    } 
     public function deactive(Request $request)
     {
         $res=user::find($request->id);

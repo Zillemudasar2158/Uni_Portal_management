@@ -41,12 +41,6 @@ class admin_auth extends Controller
 
         //return view('admin/admin_nav').view('admin/user_msg').view('footer');
     }
-    public function deletemsg(user $user,$id)
-    {
-       msg_user::destroy(array('id',$id));
-
-        return redirect('msg');
-    }
     function dept(){
         $data=DB::table('departments')
                 ->orderBy('id','DESC')

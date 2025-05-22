@@ -84,17 +84,17 @@
 </style>
 
 <div class="right">
-  <h2 style="text-align: center; padding: 5px;color: #219c9c">Reviews</h2><hr>
+  <h2 style="text-align: center; padding: 5px;color: #219c9c">Reviews / Complaints</h2><hr>
                      <!-- database lagani ha messages ki -->
       @foreach($usermem as $user )
           <button class="accordion">
             <b> Email: </b>  {{$user['email']}}
           </button>
-          <div class="panel">
-            <p style="margin-left: 50px;margin-bottom: 50px;">
+          <div class="panel"><br>
+            <p style="margin-left: 50px;margin-bottom: 30px;">
                <b> Number: </b> {{$user['number']}}
             </p>
-            <p style="margin-left: 50px;margin-bottom: 50px;">
+            <p style="margin-left: 50px;margin-bottom: 30px;">
              <b> Message: </b> {{$user['message']}}
             </p>
             <div class="topnav1" id="myTopnav">
