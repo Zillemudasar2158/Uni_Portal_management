@@ -9,7 +9,6 @@
   box-sizing: border-box;
 }
 input[type=submit] {
-  width: 100%;
   background-color: #219c9c;
   color: white;
   padding: 14px 20px;
@@ -36,7 +35,7 @@ input[type=submit] {
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <form action="admin/adminlog" method="post">
+      <form action="adminlog" method="post">
       @csrf
       <label for="fname">Email</label>
       <input type="email" class="input" name="email" placeholder="Your email.." required>

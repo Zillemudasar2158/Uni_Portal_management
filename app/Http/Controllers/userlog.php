@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\user;
 use App\Models\department;
@@ -9,6 +10,36 @@ use Illuminate\Support\Facades\DB;
 
 class userlog extends Controller
 {
+    public function saveData(Request $request)
+{
+
+    $files = $request->file('filess');
+    $names = $request->input('dept');
+    $headhod = $request->input('depthod');
+
+    $insertData = [];
+
+    foreach ($names as $i => $name) {
+        $file = $files[$i];
+        $fileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('files'), $fileName);
+
+        $insertData[] = [
+            'dept' => $name,
+            'profile_image' => 'files/' . $fileName,
+            'head_dept' => $headhod[$i],
+            'Status'=>1,
+        ];
+    }
+
+    department::insert($insertData);
+
+    echo "<script>
+           alert('Department Added Successfully');
+            window.location.href='dept';
+        </script>";
+}
+
     public function userlog1(Request $r)
     { 
         $email=$r->input('email');

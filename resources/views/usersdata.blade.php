@@ -45,20 +45,24 @@
 <div class="divuser">
     <table class="usertbl" align='center' border="2" >
         <tr class="truser">
-            <td><b>Name</b></td>
+            <td><b>Sr No.</b></td>
+            <td><b>User Name</b></td>
             <td><b>Email</b></td>
             <td><b>Password</b></td>
             <td><b>Department</b></td>
+            <td><b>Pic</b></td>
             <td><b>Active</b></td>
             <td><b>Edit</b></td>
             <td><b>Delete</b></td>
         </tr>
         @foreach($members as $user)
         <tr>
+            <td>{{$loop->iteration}}</td>
             <td>{{$user['f_name']}}</td>
             <td>{{$user['email']}}</td>
             <td>{{$user['password']}}</td>
-            <td>{{$user['dept']}}</td>    
+            <td>{{$user['dept']}}</td> 
+            <td><img src="storage\{{$user['file_path']}}" width="50px" height="50px"></td>    
             
              @if($user['status']==1) 
              <td>

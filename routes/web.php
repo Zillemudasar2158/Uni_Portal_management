@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usercontroller;
 use App\Http\Controllers\faculty;
 use App\Http\Controllers\form;
+use App\Http\Controllers\form_data;
 use App\Http\Controllers\userlog;
 use App\Http\Controllers\admin_auth;
 
@@ -19,7 +20,6 @@ use App\Http\Controllers\admin_auth;
 */
 					//usercontroller 
 
-
 		Route::get('/',[admin_auth::class,'home']);
 
 		//Route::get('regd',[usercontroller::class,'regd']);
@@ -30,12 +30,12 @@ use App\Http\Controllers\admin_auth;
 		
 				//form controller
 
-		Route::post('user_regd',[form::class,'store']);
+		Route::post('user_regd_form',[form::class,'store']);
 		Route::get('deleteuser/{id}',[form::class,'destroy']);
 		Route::get('edituser/{id}',[form::class,'edit']);
-		//Route::get('edituser/{id}',[form::class,'edit1']);
-		Route::post('userupdate/{id}',[form::class,'update'])->name('laravel1.update');
-												/*  datebase connection */
+		Route::post('userupdate/{id}',[form::class,'update'])->name('laravel2.update');
+												
+							/*  datebase connection */
 
 		Route::get('db',[form::class,'db']);
 		Route::get('delete/{id}',[admin_auth::class,'destroydept']);
@@ -50,15 +50,15 @@ use App\Http\Controllers\admin_auth;
 				//admin_auth controller
 
 		Route::get('admin',[admin_auth::class,'admin']);
-		Route::post('admin/adminlog',[admin_auth::class,'logincheck']);  
+		Route::post('admin/adminlog',[admin_auth::class,'logincheck']); 
+		Route::post('adminlog',[admin_auth::class,'logincheck']);  
 		Route::get('/logout', function () {
 		    session()->forget('name');
 		    session()->flash('msg','logout successfully');
 		    return redirect('admin');
 		});
 		
-		Route::get('jobshow',[admin_auth::class,'alljobs']);
-		
+		Route::get('jobshow',[admin_auth::class,'alljobs']);		
 											
 	Route::group(['middleware'=>['adminpage']],function(){
 
@@ -68,8 +68,15 @@ use App\Http\Controllers\admin_auth;
 		Route::get('notification',[admin_auth::class,'jobs']);
 		Route::get('jobs',[admin_auth::class,'jobs']);
 		Route::post('jobpost',[admin_auth::class,'storejob']);
+
 		Route::get('dept',[admin_auth::class,'dept']);
-		Route::post('adddept',[admin_auth::class,'store']);
+
+		Route::get('msg1',[admin_auth::class,'msg1']);
+		Route::post('adddept',[userlog::class,'saveData']);
+
+		Route::get('editdept/{id}',[admin_auth::class,'editdept']);
+		Route::post('updatedept/{id}',[admin_auth::class,'updatedept'])->name('laravel1.update');
+
 		Route::get('slider',[admin_auth::class,'slider']);
 		Route::post('sliderpic',[admin_auth::class,'addsliderpic']);
 		Route::get('deptt',[admin_auth::class,'show']);

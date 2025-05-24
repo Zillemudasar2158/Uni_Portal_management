@@ -25,14 +25,15 @@ input[type=submit] {
 <body>
 
 <h2 style="text-align: center;color: #219c9c;">User Registration form</h2><hr>
-<h3 style="text-align: center;color:red">
-        {{session('msg')}}
-   </h3><br />
+@if (session('msg'))
+    <div class="alert">{{ session('msg') }}</div>
+@endif
+<br />
 <div class="container">
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <form action="user_regd" method="post" enctype="multipart/form-data">
+      <form action="user_regd_form" method="post" enctype="multipart/form-data">
         @csrf
         <label for="fname">First Name</label>
         <input type="text" class="input" name="firstname" placeholder="Your name.." required>

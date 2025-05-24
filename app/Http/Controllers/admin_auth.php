@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\user;
 use App\Models\job;
@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\DB;
 
 class admin_auth extends Controller
 {
+    function msg1()
+    {
+        return view('admin/msg');
+    }
     function show()
     {
         $data=user::paginate(5);          // .view('usersdata',['members'=>$data])
@@ -38,15 +42,36 @@ class admin_auth extends Controller
     {
         $data=msg_user::all();
         return view('admin/admin_nav').view('admin/user_msg',['usermem'=>$data]);
-
-        //return view('admin/admin_nav').view('admin/user_msg').view('footer');
     }
     function dept(){
         $data=DB::table('departments')
                 ->orderBy('id','DESC')
-                ->get();
-        return view('admin/admin_nav').view('admin/dept').view('admin/deptdata',['members'=>$data]).view('footer');
+                ->get();    
+                return view('admin/admin_nav').view('admin/dept').view('admin/deptdata',['members'=>$data])
+                .view('footer');
     }
+    public function editdept(user $user,$id)
+    {
+       $data=department::where(['id'=>$id])->first();
+        
+       return view('admin/editdept',['dept'=>$data]);
+    }
+    public function updatedept(Request $request,$id)
+    {     
+        $request->validate([
+        'deptname' => 'required|unique:departments,dept,' . $id,
+        'dept_head_name' => 'required',
+    ]);
+
+        $res=department::find($request->id);
+        $res->dept=$request->input('deptname');
+        $res->head_dept=$request->input('dept_head_name');  
+             
+        $res->save();
+        
+        return redirect('dept');        
+    }
+
     function jobs()
     {
         $data=job::all();
@@ -77,33 +102,27 @@ class admin_auth extends Controller
         return redirect('dept');
     }
     public function store(Request $r)
-    {
-       // echo "<pre>";
-       // print_r($r->post());
-        
+    {        
         $r->validate([
             'dept'=>'required|unique:departments'
 ]);
-    /*  $res= new department;
-        $res->id=$r->post('id');
-        $res->dept=$r->post('dept');
-        $res->status=1;
-        $res->save();
-    */
-    
-        $id=$r->post('id');
+        
         $dept=$r->post('dept');
+        $dept1=$r->post('depthod');
         foreach ($dept as $key => $value) {
             $deptarr['dept']=$dept[$key];
-            $deptarr['head_dept']='Anonymus';
-            $deptarr['pic_path_dept']='wait';   //working required
+            $deptarr['head_dept']=$dept1[$key];
+            $deptarr['profile_image']=0;
             $deptarr['status']=1;
             DB::table('departments')->insert($deptarr);
         }
-        $r->session()->flash('msg','Department Added Successfully');
-        
-        return redirect('dept'); 
-        
+        echo "<script>
+           alert('Department Added Successfully');
+            window.location.href='dept';
+        </script>";
+
+        //$r->session()->flash('message','Department Added Successfully');
+        //return redirect()->back()->with('status',"data posted");        
     } 
     function logincheck(Request $request)
     {

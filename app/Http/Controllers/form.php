@@ -40,7 +40,12 @@ class form extends Controller
                 $res->email=$r->input('email');
                 $res->password=$r->input('password');
                 $res->status=1;
-                $res->file_path=$r->file('pic')->store('media','public');
+
+                $pic_path=$r->file('pic')->store('public');
+                $filenamearr=explode("/", $pic_path);
+                $filename=$filenamearr[1];
+                $res->file_path=$filename;
+
                 $res->dept=$r->input('department');
                 $res->save();
 

@@ -40,7 +40,7 @@ input[type=submit]:hover {
         {{session('msg')}}
    </h3><br />
 <div class="form">
-  <form action="{{route('laravel1.update',[$members->id])}}" method="post" >
+  <form action="{{route('laravel2.update',[$members->id])}}" method="post" >
     @csrf
     <input type="hidden" class="input" name="id" value="{{$members->id}}" placeholder="Your name.." >
     <label for="fname">First Name</label>

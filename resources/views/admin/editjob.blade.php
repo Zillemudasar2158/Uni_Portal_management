@@ -87,7 +87,7 @@ input[type=submit]:hover {
 </style>
 <body>
 
-<h2 style="text-align: center;">Update Jobs</h2>
+<h2 style="text-align: center; color:#219c9c ">Update Jobs</h2><hr>
 <h3 style="color: red;text-align: center; ">{{session('msg')}}</h3>
 <div class="form">
   <form action="{{route('laravel.update',[$job->id])}}" method="post">
