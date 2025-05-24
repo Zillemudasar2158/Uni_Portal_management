@@ -16,11 +16,6 @@ class admin_auth extends Controller
     {
         return view('admin/msg');
     }
-    function show()
-    {
-        $data=user::paginate(5);          // .view('usersdata',['members'=>$data])
-        return view('admin/admin_nav').view('usersdata',['members'=>$data]);
-    }
     function home()
     {
         $data=user::all();

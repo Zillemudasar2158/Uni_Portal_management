@@ -58,7 +58,7 @@ class form extends Controller
        
     public function show()
     {
-    	$data=user::paginate(10);           
+    	$data=user::paginate(5);           
     	return view('usersdata',['members'=>$data]);
     }
     public function destroy(user $user,$id)

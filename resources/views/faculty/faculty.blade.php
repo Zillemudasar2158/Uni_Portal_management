@@ -10,7 +10,7 @@
 	}
 </style>
 <div class="container-fluid text-center"> 
-	<h1 style="color: #219c9c">Faculty Members</h1>   
+	<h1 style="color: #219c9c">Department Head Profile</h1>   
 	<hr>
   <div class="row content">
 	@foreach($members as $user)
