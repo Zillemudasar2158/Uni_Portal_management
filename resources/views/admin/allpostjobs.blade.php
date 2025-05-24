@@ -42,12 +42,10 @@
 </style>
 <div class="right">
   <h2 style="text-align: center; padding: 5px;color: #219c9c">All posted jobs</h2><hr>
-                     <!-- database lagani ha messages ki -->
       @foreach($userjob as $user )
-
           <button class="accordion">
-
-            <b> Subject: </b>  {{$user['subject']}}
+            <b>{{$loop->iteration}}.</b>
+            <b> Subject: </b>  <u>{{$user['subject']}}</u>
 
           </button>
 

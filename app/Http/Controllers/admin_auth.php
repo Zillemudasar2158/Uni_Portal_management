@@ -59,15 +59,23 @@ class admin_auth extends Controller
     public function updatedept(Request $request,$id)
     {     
         $request->validate([
-        'deptname' => 'required|unique:departments,dept,' . $id,
-        'dept_head_name' => 'required',
+        'deptname' => 'required|string|max:255',
+        'dept_head_name' => 'required|string|max:255',
+        'profile' => 'nullable|mimes:jpg,png,jpeg|max:2048',
     ]);
+        $department = Department::findOrFail($id);
 
-        $res=department::find($request->id);
-        $res->dept=$request->input('deptname');
-        $res->head_dept=$request->input('dept_head_name');  
+        $department->dept=$request->input('deptname');
+        $department->head_dept=$request->input('dept_head_name'); 
+
+        if ($request->hasFile('profile')) {
+        $image = $request->file('profile');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('files'), $imageName);
+        $department->profile_image = 'files/' . $imageName;
+    } 
              
-        $res->save();
+        $department->save();
         
         return redirect('dept');        
     }
@@ -81,8 +89,8 @@ class admin_auth extends Controller
     {
         $res= new job;
          $res->subject=$r->input('subject');
-                //$res->file_path=$r->file('job_banner')->store('media','public');
          $res->description=$r->input('description');
+         $res->status=1;
         $res->save();
 
         $r->session()->flash('msg','Job posted Successfully');

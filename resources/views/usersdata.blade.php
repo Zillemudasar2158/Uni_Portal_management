@@ -1,7 +1,8 @@
+@include('admin.admin_nav');
 <style type="text/css">
 
     .usertbl{
-        width: 70%;
+        width: 80%;
         height: auto;
     }
     .truser{
@@ -11,29 +12,9 @@
         color: white;
         border: 1px solid white;
     }
-    .divuser{
-        float: left;
-        width: 100%;
-        height: auto;
-    }
     td{
         text-align: center;
-        padding: 2px
-    }
-    @media screen and (max-width: 600px) {
-  .usertbl{
-        width:100%;
-        height: auto;
-    }
-    .divuser{
-        float: left;
-        width: 100%;
-        height: auto;
-    }
-    td{
-        text-align: center;
-        width: 100px;
-  word-break: break-all;
+        word-break: break-all;
     }
 
 }
@@ -42,27 +23,28 @@
 <h3 style="text-align: center;color:red">
         {{session('msg')}}
    </h3><br />
-<div class="divuser">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
     <table class="usertbl" align='center' border="2" >
         <tr class="truser">
-            <td><b>Sr No.</b></td>
+            <td style="width: 70px"><b>Sr No.</b></td>
             <td><b>User Name</b></td>
             <td><b>Email</b></td>
-            <td><b>Password</b></td>
             <td><b>Department</b></td>
-            <td><b>Pic</b></td>
+            <td style="width: 80px;"><b>User Pic</b></td>
             <td><b>Active</b></td>
             <td><b>Edit</b></td>
             <td><b>Delete</b></td>
         </tr>
+        <?php $i=0;?>
         @foreach($members as $user)
         <tr>
-            <td>{{$loop->iteration}}</td>
+            <td>{{ $loop->iteration + ($members->currentPage() - 1) * $members->perPage() }}</td>
             <td>{{$user['f_name']}}</td>
             <td>{{$user['email']}}</td>
-            <td>{{$user['password']}}</td>
             <td>{{$user['dept']}}</td> 
-            <td><img src="storage\{{$user['file_path']}}" width="50px" height="50px"></td>    
+            <td style="padding: 10px"><img src="{{ asset('storage/' . $user['file_path']) }}" width="50" height="50"></td>    
             
              @if($user['status']==1) 
              <td>
@@ -92,7 +74,12 @@
         @endforeach
         
     </table>
+
+        </div>
+    </div>       
 </div>
+
+
 <div style=" margin-top: 20px">
     <span style="font-size: 20px;padding: 20px;text-align: center;">
     {{$members->links()}}

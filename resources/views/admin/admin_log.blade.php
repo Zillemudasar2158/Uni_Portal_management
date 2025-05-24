@@ -9,7 +9,8 @@
   box-sizing: border-box;
 }
 input[type=submit] {
-  background-color: #219c9c;
+  width: 100%;
+  background-color:  #219c9c;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -18,12 +19,20 @@ input[type=submit] {
   cursor: pointer;
 }
 
-@media only screen and (max-width:750px) {
+.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  margin-left: 25%;
+  padding: 20px;
+  width: 50%;
+  height: 295px;
+}
+@media only screen and (max-width:720px) {
   /* For mobile phones: */
   .form {
-    width:100%;
+    width:75%;
     height: 380px;
-    margin-left: 0%;
+    margin-left: 12%;
   }
 }
 </style>
@@ -31,10 +40,7 @@ input[type=submit] {
 
 <h2 style="text-align: center;color:#219c9c">Admin Log In</h2><hr>
 <h3 style="color: red;text-align: center; ">{{session('msg')}}</h3>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
+<div class="form">
       <form action="adminlog" method="post">
       @csrf
       <label for="fname">Email</label>
@@ -45,8 +51,5 @@ input[type=submit] {
 
       <input type="submit" value="Log In">
     </form>
-    <div class="col-sm-3"></div>
-    </div>
-  </div>
-    
+
 </div>

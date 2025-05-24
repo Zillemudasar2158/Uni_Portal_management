@@ -47,11 +47,12 @@
       @foreach($userjob as $user )
 @if($user['status']==1)
           <button class="accordion">
-
-            <b> Subject: </b>  {{$user['subject']}}
+            <b>{{$loop->iteration}}. </b>
+            <b> Subject: </b> <u> {{$user['subject']}}</u>
           </button>
           <div class="panel">
-            <p style="margin-left: 50px;margin-bottom: 50px;">
+            <br>
+            <p style="margin-left: 100px;">
                <b> Description: </b> {{$user['description']}}
             </p>
             <div class="topnav1" id="myTopnav">
@@ -76,7 +77,8 @@ for (i = 0; i < acc.length; i++) {
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
-    } else {
+    } 
+    else {
       panel.style.maxHeight = panel.scrollHeight + "px";
     } 
   });

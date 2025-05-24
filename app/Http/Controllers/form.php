@@ -49,17 +49,17 @@ class form extends Controller
                 $res->dept=$r->input('department');
                 $res->save();
 
-        $r->session()->flash('msg','Registration successfully');
+        //$r->session()->flash('msg','Registration successfully');
         
-        return redirect('regd'); 
+        return redirect('login'); 
             }
         }
     }   
        
     public function show()
     {
-    	$data=user::paginate(5);           
-    	return view('admin/admin_nav').view('usersdata',['members'=>$data]);
+    	$data=user::paginate(10);           
+    	return view('usersdata',['members'=>$data]);
     }
     public function destroy(user $user,$id)
     {

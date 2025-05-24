@@ -1,10 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GCUF sahiwal campus</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+  
+.img{
+  margin-left: 50px;
+}
+</style>
 <style>
-  .input1{
-    height: 50px;
-    width: 98%;
-    padding: 10px;
-    border-radius: 20px;
-  }
 .input, select {
   width: 100%;
   padding: 12px 20px;
@@ -16,7 +25,7 @@
 }
 input[type=submit] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #219c9c;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -24,84 +33,34 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
 .form {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
   height: 280px;
 }
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  .form {
-    width:100%;
-    height: 230px;
-  }
-}
 
-.topnav1 {
-  overflow: hidden;
-  
-  
-  height: 35%;
-  margin-left: 50px;
-}
 
-.topnav1 a {
-  float: left;
-  display: block;
-  height: 30%;
-  background-color: #333;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav1 a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav1 a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-@media screen and (max-width: 600px) {
-  .topnav1 {
-  overflow: hidden;
-  
-  
-  height: 45%;
-  margin-left: 50px;
-}
-
-}
-.img{
-  margin-left: 50px;
-}
-</style>
-<body>
+</style></head>
 
 <h2 style="text-align: center; color:#219c9c ">Update Jobs</h2><hr>
 <h3 style="color: red;text-align: center; ">{{session('msg')}}</h3>
-<div class="form">
-  <form action="{{route('laravel.update',[$job->id])}}" method="post">
-    @csrf
-   
-    <label for="fname"><b>Subject: </b></label>
-    <input type="text" class="input" name="subjectjob" value="{{$job->subject}}" placeholder="Your job subject.." required>
-
-   <!-- <label for="pic"><b> Job banner </b></label>
-    <input type="file" class="input" name="banner" required>
--->
-    <label for="fname"><b>Description</b> </label> <br><br>
-    <input type="text" height="100px;" class="input1" value="{{$job->description}}" name="descriptionjob" placeholder="Type text here........" required>
-
-    <input type="submit" value="Update job">
-  </form>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form action="{{route('laravel.update',[$job->id])}}" method="post" enctype="multipart/form-data">
+        @csrf
+       
+        <label for="fname"><b>Subject: </b></label>
+        <input type="text" class="input" name="subjectjob" value="{{$job->subject}}" placeholder="Your job subject.." required>
+        <label for="fname"><b>Description</b> </label> <br><br>
+        <textarea name="descriptionjob" rows="8" cols="76">
+          {{$job->description}}
+        </textarea>
+        <input type="submit" value="Update job">
+      </form>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
 </div>
