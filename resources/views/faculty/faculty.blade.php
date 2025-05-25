@@ -13,12 +13,12 @@
 	<h1 style="color: #219c9c">Head of Department Profile</h1>   
 	<hr>
   <div class="row content">
-	@foreach($members as $user)
+	@foreach($dept as $user)
     <div class="col-sm-4"> 
-    	<img src="image/pic1.jpg" class="img_faculty">
-      	<h3 style="font-weight: bold;">{{$user->head_dept}}</h3>
+    	<img src="{{ asset($user->profile_img ?? 'image/pic1.jpg') }}" class="img_faculty" alt="Faculty Image">
+    	<h3 style="font-weight: bold;">{{ $user->head_dept ?: 'Anonymous' }}</h3>
       	<p style="font-size: 25px;">Head of department</p>
-      	<h4>{{$user->dept}}</h4>
+      	<h4><a href="deptfaculty/{{$user->dept}}">{{$user->dept}}</a></h4>
     </div> 
   @endforeach
    </div>

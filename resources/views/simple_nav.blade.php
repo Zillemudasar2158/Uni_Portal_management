@@ -9,16 +9,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
-  
+  .navbar-sticky-top
+{
+    position: fixed;
+    z-index: 999;
+    opacity:1;
+    width: 100%;
+}
 .img{
   margin-left: 50px;
 }
 </style>
 <body>
-<div class="container-fluid">
- <a href="/"><img src="/image/gcuf.png" class="img" height="80"></a>
-</div><br>
-<nav class="navbar navbar-inverse ">
+  
+<nav class="navbar navbar-inverse navbar-sticky-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -30,13 +34,13 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="faculty">Faculty</a></li>
-        <li><a href="program">Programmes</a></li>
-        <li><a href="contact">Contact us</a></li>
+        <li><a href="{{ route('faculty.page') }}">Faculty</a></li>
+        <li><a href="{{ route('program.page') }}">Programmes</a></li>
+        <li><a href="{{ route('contact.page') }}">Contact us</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="jobshow">Careers</a></li>
+            <li><a href="{{ route('jobshow.page') }}">Careers</a></li>
            
           </ul>
         </li> 
@@ -52,22 +56,14 @@
           </ul>
         </li>
         @else
-        <li><a href="regd"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="{{ route('regd.page') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="{{ route('login.page') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         @endif
       </ul>
-                                       <!--
-                                        <form class="navbar-form navbar-right" action="">
-                                        <div class="input-group">
-                                          <input type="text" class="form-control" placeholder="Search" name="search">
-                                          <div class="input-group-btn">
-                                            <button class="btn btn-default" type="submit">
-                                              <i class="glyphicon glyphicon-search"></i>
-                                            </button>
-                                          </div>
-                                        </div>
-                                      </form> -->
      </div>
   </div>
 </nav>
+<div class="container-fluid">
+  <div class="col-sm-12" style="height: 50px"></div>
+</div>
   

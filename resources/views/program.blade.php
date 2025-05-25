@@ -13,9 +13,9 @@
 	<hr>
   <div class="row content">
 	@foreach($members as $user)
-	@if($user->status==1))
+	@if($user->status==1)
     <div class="col-sm-4"> 
-    	<a href="https://affiliation.gcuf.edu.pk/programs.php" target="_blank"><img src="{{$user->profile_image}}" class="img_faculty">
+    	<a href="deptfaculty/{{$user->dept}}"><img src="{{$user->profile_image}}" class="img_faculty">
       	<h4>{{$user->dept}}</a></h4>
     </div> 
     @endif

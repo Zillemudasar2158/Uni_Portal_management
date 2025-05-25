@@ -23,9 +23,8 @@ use App\Http\Controllers\admin_auth;
 		Route::get('/',[admin_auth::class,'home']);
 
 		//Route::get('regd',[usercontroller::class,'regd']);
-		Route::get('login',[usercontroller::class,'login']);
-		Route::get('regd',[usercontroller::class,'regd']);
-		Route::get('gallery',[usercontroller::class,'gallery']);
+		Route::get('login',[usercontroller::class,'login'])->name('login.page');
+		Route::get('regd',[usercontroller::class,'regd'])->name('regd.page');
 
 		
 				//form controller
@@ -42,10 +41,11 @@ use App\Http\Controllers\admin_auth;
 		Route::get('deletejob/{id}',[admin_auth::class,'destroyjob']);
 
 				//faulty controller
-		Route::get('faculty',[faculty::class,'faculty']);
+		Route::get('faculty',[faculty::class,'faculty'])->name('faculty.page');
+		Route::get('deptfaculty/{id}',[faculty::class,'deptprofile']);
 
 				//Program route
-		Route::get('program',[faculty::class,'program']);
+		Route::get('program',[faculty::class,'program'])->name('program.page');
 
 				//admin_auth controller
 
@@ -58,26 +58,32 @@ use App\Http\Controllers\admin_auth;
 		    return redirect('admin');
 		});
 		
-		Route::get('jobshow',[admin_auth::class,'alljobs']);		
+		Route::get('jobshow',[admin_auth::class,'alljobs'])->name('jobshow.page');		
 											
 	Route::group(['middleware'=>['adminpage']],function(){
 
 		//Route::get('usersdata',[form::class,'show']);
-		Route::get('usersdata',[form::class,'show']);
-		Route::get('msg',[admin_auth::class,'msg']);
+		Route::get('usersdata',[form::class,'show'])->name('usersdata.page');
+		Route::get('msg',[admin_auth::class,'msg'])->name('msg.page');
 		Route::get('notification',[admin_auth::class,'jobs']);
-		Route::get('jobs',[admin_auth::class,'jobs']);
+		Route::get('jobs',[admin_auth::class,'jobs'])->name('jobs.page');
 		Route::post('jobpost',[admin_auth::class,'storejob']);
 
-		Route::get('dept',[admin_auth::class,'dept']);
+		Route::get('dept',[admin_auth::class,'dept'])->name('dept.page');
 
 		Route::get('msg1',[admin_auth::class,'msg1']);
 		Route::post('adddept',[userlog::class,'saveData']);
 
+				//admin faculty member
+		Route::get('addfaculty',[faculty::class,'addfaculty'])->name('addfaculty.page');
+		Route::post('facultypost',[faculty::class,'postfaculty']);
+		Route::get('alldept',[faculty::class,'alldeptfaculty'])->name('alldept.page');
+		Route::get('alldept/{id}',[faculty::class,'allfacultyshow'])->name('laravel3.update');
+
 		Route::get('editdept/{id}',[admin_auth::class,'editdept']);
 		Route::post('updatedept/{id}',[admin_auth::class,'updatedept'])->name('laravel1.update');
 
-		Route::get('slider',[admin_auth::class,'slider']);
+		Route::get('slider',[admin_auth::class,'slider'])->name('slider.page');
 		Route::post('sliderpic',[admin_auth::class,'addsliderpic']);
 		Route::get('deptt',[admin_auth::class,'show']);
 		Route::get('activeuser/{id}',[form::class,'active']);
@@ -97,7 +103,7 @@ use App\Http\Controllers\admin_auth;
 });
 
 		Route::get('career',[usercontroller::class,'regd1']);
-		Route::get('contact',[usercontroller::class,'contact']);		
+		Route::get('contact',[usercontroller::class,'contact'])->name('contact.page');		
 			
 			/*           user login 
 is middleware me issue a ra ha isko check krna ha */

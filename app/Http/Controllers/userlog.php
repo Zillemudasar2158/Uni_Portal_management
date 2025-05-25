@@ -15,7 +15,6 @@ class userlog extends Controller
 
     $files = $request->file('filess');
     $names = $request->input('dept');
-    $headhod = $request->input('depthod');
 
     $insertData = [];
 
@@ -27,7 +26,8 @@ class userlog extends Controller
         $insertData[] = [
             'dept' => $name,
             'profile_image' => 'files/' . $fileName,
-            'head_dept' => $headhod[$i],
+            'head_id'=>'',
+            'head_dept' => '',
             'Status'=>1,
         ];
     }

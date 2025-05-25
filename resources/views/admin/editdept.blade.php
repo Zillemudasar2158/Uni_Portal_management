@@ -40,13 +40,21 @@ input[type=submit] {
       <form action="{{route('laravel1.update',[$dept->id])}}" method="post" enctype="multipart/form-data">
         @csrf
         <label for="fname"><b>Department name: </b></label>
-        <input type="text" class="input" name="deptname" value="{{$dept->dept}}" placeholder="Your job subject">
+        <input type="text" class="input" name="deptname" value="{{$dept->dept}}" readonly>
 
-        <label for="fname"><b>HOD Name</b> </label>
-        <input type="text" class="input" value="{{$dept->head_dept}}" name="dept_head_name" placeholder="Type HOD name here........" required>
+        <label for="faculty">Department Faculty</label>
+
+        <select id="faculty" name="facultyname">
+        @foreach ($finddept as $faculty)
+          @if($faculty->status==1)
+              <option value="{{ $faculty->id }},{{ $faculty->name }}">{{ $faculty->name }}</option>
+          @endif
+
+        @endforeach
+        </select>
 
         <label for="fname"><b>Department  Profile Pic update</b> </label>
-        <input type="file" class="input" name="profile" placeholder="Type HOD name here." required>
+        <input type="file" class="input" name="profile">
 
         <input type="submit" value="Update HOD name">
       </form>

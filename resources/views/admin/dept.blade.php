@@ -25,15 +25,11 @@
           <div id="dept_row_box">
           <div id="dept1">
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-5">
                 <label>Department name</label>
                 <input type="text" class="input" name="dept[]" placeholder="Enter department name.." required>
               </div>
-              <div class="col-sm-3">
-                <label>HOD name</label>
-                <input type="text" class="input" name="depthod[]" placeholder="Enter HOD name.." required>
-              </div>
-              <div class="col-sm-4">    
+              <div class="col-sm-5">    
                 <label>Department pic</label>
                 <input type="file" class="input" name="filess[]"  required>
               </div>
@@ -67,7 +63,7 @@
           loop_count++;
           var html='<div id="dept'+loop_count+'">';
       
-          html+='<br><div class="row"><div class="col-sm-3"><input type="text" class="input" name="dept[]" placeholder="Enter department name'+loop_count+'.." required></div><div class="col-sm-3"><input type="text" class="input" name="depthod[]" placeholder="Enter HOD name.." required></div><div class="col-sm-4"><input type="file" class="input" name="filess[]" placeholder="Enter HOD name.." required></div><div class="col-sm-2"><button type="button"  class="btn btn-danger btn-lg" style="margin-left: 5px" onclick=remove_more("'+loop_count+'")><span aria-hidden="true">-</span></button></div>          </div>'; 
+          html+='<br><div class="row"><div class="col-sm-5"><input type="text" class="input" name="dept[]" placeholder="Enter department name'+loop_count+'.." required></div><div class="col-sm-5"><input type="file" class="input" name="filess[]" placeholder="Enter HOD name.." required></div><div class="col-sm-2"><button type="button"  class="btn btn-danger btn-lg" style="margin-left: 5px" onclick=remove_more("'+loop_count+'")><span aria-hidden="true">-</span></button></div>          </div>'; 
 
            html+='</div>';
       

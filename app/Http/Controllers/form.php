@@ -23,7 +23,6 @@ class form extends Controller
    
     public function store(Request $r)
     {
-
         $chkemail=$r->input('email');
         $users = DB::table('users')->get();
 
