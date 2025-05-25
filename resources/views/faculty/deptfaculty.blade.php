@@ -4,8 +4,8 @@
 		margin-bottom: 5px;
 	}
 	.img_faculty{
-		width: 100px;
-		height: 100px;
+		width: 200px;
+		height: 200px;
 		margin-top: 5px;
 		border-radius: 20px
 	}

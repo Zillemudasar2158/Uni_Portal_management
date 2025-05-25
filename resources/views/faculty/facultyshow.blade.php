@@ -1,4 +1,4 @@
-<div class="col-sm-4" style="margin-top: 20px"> 
+<div class="col-sm-3" style="margin-top: 20px"> 
 	<div class="faclty">
 	<img src="{{ asset($user1->profile_img) }}" class="img_faculty">
 	<h4>{{ $user1->name }}</h4>
