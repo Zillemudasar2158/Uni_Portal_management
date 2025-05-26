@@ -20,14 +20,14 @@ class faculty extends Controller
                     ->where('departments.status', 1)
                     ->get();
 
-        return view('simple_nav').view('faculty/faculty',['dept'=>$dept]);
+        return view('faculty.faculty',['dept'=>$dept]);
     }
     function program()
     {
     	$data=DB::table('departments')
                 ->orderBy('id','DESC')
                 ->get();
-        return view('simple_nav').view('program',['members'=>$data]);
+        return view('program',['members'=>$data]);
     }
     function deptprofile($dept)
     {
@@ -83,8 +83,27 @@ class faculty extends Controller
         $data= facultymem::where('deptname', $dept)->get();
         $dept;
 
-        return view('admin.deptwisedatashow',['members' => $data],['dept'=>$dept]);
+        return view('admin.deptwisedatashow',['members' => $data],['dept'=>$dept]);        
+    }     
+    public function deactivefaculty(Request $req,$id)
+    {
+        $res=facultymem::find($id);
+        $res->status=0;
+        $res->save();
         
+        return redirect()->back()->with('success', 'Faculty member Status change successfully!');
+    }    
+    public function activefaculty(Request $req,$id)
+    {
+        $res=facultymem::find($id);
+        $res->status=1;
+        $res->save();
         
-    }
+        return redirect()->back()->with('success', 'Faculty member Status change successfully!');
+    }   
+    public function destoryfaculty(Request $req,$id)
+    {
+        facultymem::destroy(array('id',$id));
+        return redirect()->back()->with('success', 'Faculty member Status change successfully!');
+    } 
 }

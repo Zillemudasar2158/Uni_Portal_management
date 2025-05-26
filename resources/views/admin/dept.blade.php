@@ -1,3 +1,4 @@
+@include('admin.admin_nav')
 <style>
    .input, select {
    width: 100%;
@@ -56,7 +57,8 @@
   </div>
 </div>
 
-
+@include('admin.deptdata')
+@include('footer')
 <script>
       var loop_count=1; 
       function add_more(){

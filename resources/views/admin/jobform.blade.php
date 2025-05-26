@@ -1,3 +1,4 @@
+@include('admin.admin_nav')
 <style>
   .input1{
     height: 50px;
@@ -93,3 +94,4 @@ input[type=submit] {
   </div>  
 </div>
 <hr>
+@include('admin/allpostjobs')

@@ -1,0 +1,16 @@
+<style type="text/css">
+  #blink {
+            font-size: 40px;
+            font-weight: bold;
+            color:#219c9c;
+            transition: 0.2s;
+            text-align: center;
+        }
+</style>
+  <h2 id="blink">Campus View</h2>
+<script type="text/javascript">
+        var blink = document.getElementById('blink');
+        setInterval(function() {
+            blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+        }, 1500);
+    </script>

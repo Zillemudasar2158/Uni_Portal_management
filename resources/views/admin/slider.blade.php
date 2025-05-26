@@ -1,3 +1,4 @@
+@include('admin.admin_nav')
 <style>
 .input, select {
   width: 100%;
@@ -56,3 +57,4 @@ input[type=submit] {
     <div class="col-sm-3"></div>
   </div>
 </div>
+@include('admin.sliderpics')

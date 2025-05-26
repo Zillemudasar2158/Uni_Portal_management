@@ -14,11 +14,14 @@
 </style>
 <hr>
 <h3 style="text-align: center;color: #219c9c;">All Slider images</h3><hr>
+
+<form method="POST" action="{{ route('admin.slider.updateOrder') }}">
+    @csrf
 <table align='center' border="2" >
     <tr class="truser">
         <td><b>Name</b></td>
         <td><b>Slider pics</b></td>
-        <td><b>Action</b></td>
+        <td><b> Slider image order</b></td>
         <td><b>Delete</b></td>
     </tr>
     @foreach($members as $user )
@@ -26,35 +29,29 @@
         
         <td>{{$user['pic_description']}}</td>
 
+        <td><img src="{{$user['pic_path']}}" width="80px" height="60px" style="padding: 5px"></a></td>
         <td>
-            <a href="image/{{$user->id}}" target="_blank">
-                <img src="{{ asset('storage/'.$user['pic_path']) }}" width="80px" height="60px">
+            <input type="number" name="orders[{{ $user->id }}]" value="{{ $user->order_pic }}" 
+                style="width:40px;text-align: center;">
+        </td> 
+       
+        <td>
+            <a href="{{ route('slider.delete', $user->id) }}"
+                <button class="btn btn-danger">Delete</button>
             </a>
-            
-        </td>
-       
-            @if($user['status']==1) 
-             <td>
-                <a href="sliderdeactivepic/{{$user->id}}"><button class="btn btn-success">
-                     Active
-                </button></a> 
-            </td> 
-            @else
-            <td>
-                <a href="slideractivepic/{{$user->id}}"><button class="btn btn-warning">
-                    deactive
-                </button></a> 
-            </td> 
-            @endif 
-       
-        <td>
-            <a href="deleteslidepic/{{$user->id}}">
-                <button class="btn btn-danger">
-                    Delete
-                </button>
-            </a> 
         </td>
         
     </tr>
     @endforeach
+    @if($members->isEmpty())
+
+    @else
+    <tr>
+        <td colspan="4" style="text-align: center;padding: 10px">
+            <button class="btn btn-success">Re-ordering Slider images</button>
+        </td>
+    </tr>
+    @endif
 </table>
+</form>
+@include('footer')

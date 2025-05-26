@@ -1,3 +1,4 @@
+@include('admin.admin_nav')
 <style type="text/css">
 .topnav1 {
   overflow: hidden;

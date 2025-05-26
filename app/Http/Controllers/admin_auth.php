@@ -8,72 +8,69 @@ use App\Models\job;
 use App\Models\department;
 use App\Models\facultymem;
 use App\Models\msg_user;
-use App\Models\slider;
+use App\Models\sliderpic;
 use Illuminate\Support\Facades\DB;
 
 class admin_auth extends Controller
 {
-    function msg1()
-    {
-        return view('admin/msg');
-    }
     function home()
     {
         $data=user::all();
-        return view('simple_nav',['members'=>$data]).view('slider').view('footer').view('chatmessage_popup');
-
-        //return view('simple_nav').view('container',['jobdata'=>$jobdatapost]).view('footer').view('chatmessage_popup');
+        $sliderdata=sliderpic::orderBy('order_pic')->get();
+        return view('slider', ['members' => $data,'slider'=>$sliderdata]);
     }
     function alljobs()
     {
         $data=job::all();
-        $datapic=user::all();
-        return view('simple_nav',['members'=>$datapic]).view('userjob',['userjob'=>$data]).view('chatmessage_popup');
+        return view('userjob',['userjob'=>$data]);
     }
 	function admin()
     {
-		return view('admin/admin_nav').view('admin/admin_log').view('footer');
+		return view('admin.admin_log');
 	}
     function msg()
     {
         $data=msg_user::all();
-        return view('admin/admin_nav').view('admin/user_msg',['usermem'=>$data]);
+        return view('admin.user_msg',['usermem'=>$data]);
     }
     function dept(){
         $data=DB::table('departments')
                 ->orderBy('id','DESC')
                 ->get();    
-                return view('admin/admin_nav').view('admin/dept').view('admin/deptdata',['members'=>$data])
-                .view('footer');
+                return view('admin.dept',['members'=>$data]);
     }
     public function editdept(user $user,$id)
     { 
         $data = Department::find($id);
-                    if ($data) 
-                    {
-                        $department= $data->dept;
-                     
-                        $finddata= facultymem::where('deptname', $department)->get();  
-                        
-                        return view('admin.editdept',['dept'=>$data,'finddept'=>$finddata]);
-                    }
-    //return view('admin/editdept',['dept'=>$data]);
+        if ($data) 
+        {
+            $department= $data->dept;
+         
+            $finddata= facultymem::where('deptname', $department)->get();  
+            
+            return view('admin.editdept',['dept'=>$data,'finddept'=>$finddata]);
+        }
     }
     public function updatedept(Request $request,$id)
     { 
         $department = Department::findOrFail($id);
 
         $department->dept=$request->input('deptname');
-        if ($request->input('facultyname')=='') {
+        if ($request->input('facultyname')=='')
+        {
             $department->head_dept='';
             $department->head_id='';
-        }else{
+        }
+        else
+        {
             list($facultyid, $facultyname) = explode(',', $request->input('facultyname'));
             $department->head_id=$facultyid;
             $department->head_dept=$facultyname;
             
-            if ($id && $facultyid) {
-            DB::transaction(function () use ($id, $facultyid) {
+            if ($id && $facultyid) 
+            {
+            DB::transaction(function () use ($id, $facultyid) 
+            {
                 // Step 1: Reset all add_charge flags in the same department
             DB::table('facultymem')
             ->where('dept_id', $id)
@@ -84,27 +81,31 @@ class admin_auth extends Controller
             ->where('id', $facultyid)
             ->where('dept_id', $id) // Make sure the faculty is in the same department
             ->update(['add_charge' => 1]);
-    });
-}
+            });
+        }
 
         }      
 
-        if ($request->hasFile('profile')) {
-        $image = $request->file('profile');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('files'), $imageName);
-        $department->profile_image = 'files/' . $imageName;
-    } 
+        if ($request->hasFile('profile')) 
+        {
+            $image = $request->file('profile');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('files'), $imageName);
+            $department->profile_image = 'files/' . $imageName;
+        } 
              
         $department->save();
         
         return redirect('dept');        
     }
-
+    function msg1()
+    {
+        return view('admin.msg');
+    }
     function jobs()
     {
         $data=job::all();
-        return view('admin/admin_nav').view('admin/jobform').view('admin/allpostjobs',['userjob'=>$data]);
+        return view('admin/jobform',['userjob'=>$data]);
     }
     public function storejob(Request $r)
     {
@@ -159,48 +160,53 @@ class admin_auth extends Controller
     }
     public function slider(Request $r)
     {
-
-        $data=slider::all();
-        return view('admin/admin_nav').view('admin/slider').view('admin/sliderpics',['members'=>$data]);
+        $data=sliderpic::all();
+        return view('admin.slider',['members'=>$data]);
     } 
     public function addsliderpic(Request $r)
-    {  
-                $res= new slider;
-                $res->id=$r->input('id');
-                $res->pic_description=$r->input('description');
-                $res->status=1;
-                $res->pic_path=$r->file('slider_pic')->store('media','public');
-                $res->save();
+    { 
+        $data=sliderpic::all();
+        $count=count($data);
+        $countdata= $count+1;
+
+        $res= new sliderpic;
+        $res->id=$r->input('id');
+        $res->pic_description=$r->input('description');
+        $res->order_pic=$countdata;
+
+        if ($r->hasFile('Slider_pic')) 
+        {
+            $image = $r->file('Slider_pic');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('slider'), $imageName);
+            $res->pic_path= 'slider/' . $imageName;
+        } 
+
+        $res->save();
 
         $r->session()->flash('msg','Pic Added Successfully');
         
-        return redirect('slider'); 
+        return redirect('addslider');
     } 
-    public function deactivepic(Request $request)
+    public function updateOrder(Request $request)
     {
-        $res=slider::find($request->id);
-        $res->status=0;
-        $res->save();
-        
-        return redirect('slider');
-    } 
-    public function activepic(Request $request)
-    {
-        $res=slider::find($request->id);
-        $res->status=1;
-        $res->save();
-        
-        return redirect('slider');
-    }
-    public function deleteslidepic(user $user,$id)
-    {
-        slider::destroy(array('id',$id));
+        foreach ($request->orders as $id => $newOrder) {
+            \App\Models\SliderPic::where('id', $id)->update([
+                'order_pic' => $newOrder,
+            ]);
+        }
 
-        return redirect('slider');
+        return redirect()->back()->with('success', 'Slider orders updated successfully.');
+    }
+    public function deleteslidepic($id)
+    {
+        \App\Models\SliderPic::destroy($id);
+        return redirect('addslider')->with('success', 'Slider pic deleted successfully.');
     }
     public function imageshow(user $user,$id)
     {
-       $data=slider::find($id);
-       return view('admin/image',['dept'=>$data]).view('footer');
+       $data=sliderpic::find($id);
+       return view('admin.image',['dept'=>$data]);
     }
 }
+

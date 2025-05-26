@@ -61,7 +61,7 @@
         </td> 
         @endif         
         <td>
-            <a href="editdept/{{$user->id}}">
+            <a href="#editdept/{{$user->id}}">
                 <button class="btn btn-info">
                     Edit
                 </button>

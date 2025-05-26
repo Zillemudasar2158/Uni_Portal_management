@@ -1,3 +1,4 @@
+@include('../simple_nav')
 <style type="text/css">
 	.col-sm-4{
 		margin-bottom: 5px;

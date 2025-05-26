@@ -47,10 +47,10 @@
             <li><a href=" {{route('dept.page')}} ">Add department</a></li>
             <li><a href=" {{route('addfaculty.page')}} ">Add faculty members</a></li>
             <li><a href=" {{route('jobs.page')}} ">Add jobs</a></li>
-            <li><a href=" {{route('slider.page')}} ">Add slider Pics</a></li>
+            <li><a href=" {{route('addslider.page')}} ">Add slider Pics</a></li>
           </ul>
         </li>
-        <li><a href="{{ route('alldept.page') }}">Department faculty</a></li>
+        <li><a href="{{route('alldept.page')}}">Department faculty</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 

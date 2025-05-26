@@ -1,3 +1,4 @@
+@include('simple_nav')
 <style type="text/css">
 	
 .right {

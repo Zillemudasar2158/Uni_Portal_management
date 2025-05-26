@@ -1,3 +1,4 @@
+@include('admin.admin_nav')
 <style>
 .input, select {
   width: 100%;
