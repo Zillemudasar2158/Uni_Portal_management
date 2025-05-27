@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\department;
 use App\Models\facultymem;
@@ -84,15 +84,20 @@ class faculty extends Controller
         $dept;
 
         return view('admin.deptwisedatashow',['members' => $data],['dept'=>$dept]);        
-    }     
-    public function deactivefaculty(Request $req,$id)
-    {
-        $res=facultymem::find($id);
-        $res->status=0;
-        $res->save();
-        
-        return redirect()->back()->with('success', 'Faculty member Status change successfully!');
     }    
+	public function deactivefaculty($id): RedirectResponse
+	{
+	    $faculty = Facultymem::findOrFail($id);
+	    
+	    if ($faculty->status === 0) {
+	        return redirect()->back()->with('info', 'Faculty member is already deactivated.');
+	    }
+
+	    $faculty->update(['status' => 0]);
+
+	    return redirect()->back()->with('success', 'Faculty member status updated successfully.');
+	}
+    
     public function activefaculty(Request $req,$id)
     {
         $res=facultymem::find($id);

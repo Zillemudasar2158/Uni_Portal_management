@@ -98,10 +98,6 @@ class admin_auth extends Controller
         
         return redirect('dept');        
     }
-    function msg1()
-    {
-        return view('admin.msg');
-    }
     function jobs()
     {
         $data=job::all();

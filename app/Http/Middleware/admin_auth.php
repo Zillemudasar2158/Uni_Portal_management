@@ -21,10 +21,6 @@ class admin_auth
            $request->session()->flash('msg','Already login');
             return redirect('/usersdata');
         }
-     /*   elseif(!$request->session()->has('name')) {
-           $request->session()->flash('error','Please login to continue for further process');
-            return redirect('admin');
-        }   */
        
         return $next($request);
     }

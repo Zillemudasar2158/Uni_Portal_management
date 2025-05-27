@@ -62,16 +62,14 @@ use App\Http\Controllers\admin_auth;
 											
 	Route::group(['middleware'=>['adminpage']],function(){
 
-		//Route::get('usersdata',[form::class,'show']);
 		Route::get('usersdata',[form::class,'show'])->name('usersdata.page');
 		Route::get('msg',[admin_auth::class,'msg'])->name('msg.page');
+
 		Route::get('notification',[admin_auth::class,'jobs']);
 		Route::get('jobs',[admin_auth::class,'jobs'])->name('jobs.page');
 		Route::post('jobpost',[admin_auth::class,'storejob']);
-
 		Route::get('dept',[admin_auth::class,'dept'])->name('dept.page');
 
-		Route::get('msg1',[admin_auth::class,'msg1']);
 		Route::post('adddept',[userlog::class,'saveData']);
 
 				//admin faculty member
