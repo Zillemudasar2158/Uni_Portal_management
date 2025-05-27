@@ -62,7 +62,7 @@ A Laravel-based web application for managing a university's core operations incl
    php artisan serve
    ```
 
-   Visit: [http://localhost:8000](http://localhost:8000)
+   Visit: [http://localhost:8000]
 
 ---
 
@@ -70,8 +70,6 @@ A Laravel-based web application for managing a university's core operations incl
 
 * Email: `zillemudasar@gmail.com`
 * Password: `12345`
-
-> Change these in seeder or database manually.
 
 ---
 
